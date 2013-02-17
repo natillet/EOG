@@ -32,6 +32,7 @@ typedef unsigned int uint;
 // UART
 #define P1TX        BIT1        // Tx on P1.1
 #define P1RX        BIT2        // Rx on P1.2
+#define STR_LEN		35
 
 // Timer counter to 1 second based on 1MHz
 #define SEC_COUNT 20

@@ -9,6 +9,7 @@
 #include "uart.h"
 
 int one_sec = SEC_COUNT;
+uint ADCValue;
 
 /*
  *
@@ -23,8 +24,9 @@ __interrupt void TIMER0_A0_ISR()
 	else
 	{
 		//LEDRG_OUT ^= LED_G;
-		serial_log("\r\nPrinting things!\r\n");
+		//serial_log("\r\nPrinting things!\r\n");
 		one_sec = 20;
+		__bic_SR_register_on_exit(CPUOFF);        // Clear CPUOFF bit from 0(SR)
 	}
 }
 
@@ -67,13 +69,15 @@ __interrupt void USCIAB0RX_ISR()
 }
 
 
-/*
+// ADC10 interrupt service routine
 #pragma vector=ADC10_VECTOR
-__interrupt void ADC10_ISR()
+__interrupt void ADC10_ISR(void)
 {
-    serial_log("Error!  Unhandled interrupt ADC10_ISR!\r\n");
+	ADCValue = ADC10MEM;			// Saves measured value
+	__bic_SR_register_on_exit(CPUOFF);        // Clear CPUOFF bit from 0(SR)
 }
 
+/*
 #pragma vector=COMPARATORA_VECTOR
 __interrupt void COMPARATORA_ISR()
 {

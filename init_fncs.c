@@ -22,12 +22,22 @@ void setup_clock(void)
 void setup_leds(void)
 {
 	/* LED Setup */
-	P1DIR |= (LED_R | LED_G);
-	P1OUT &= ~(LED_R | LED_G);  // should be off already, but just be sure
+	//P1DIR |= (LED_R | LED_G);
+	//P1OUT &= ~(LED_R | LED_G);  // should be off already, but just be sure
+	P1DIR |= LED_R;
+	P1OUT &= ~LED_R;  // should be off already, but just be sure
 }
 
 void go_low_power(void)
 {
 	__bis_SR_register(LPM0_bits + GIE);
 }
+
+void ADC_init(void) {
+    //16 x ADC10CLKs sample&hold time, turn on ADC, ADC interrupt enable
+    ADC10CTL0 = ADC10SHT_2 + ADC10ON + ADC10IE;
+    ADC10CTL1 = INCH_4;                       // input A1
+    ADC10AE0 |= BIT4 | BIT5 | BIT6 | BIT7;    // PA.4/5/6/7 ADC option select
+}
+
 

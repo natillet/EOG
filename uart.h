@@ -16,7 +16,7 @@ void setup_usci(void);
  */
 inline void serial_log(const char *str)
 {
-    P1OUT |= BIT6;  // green led
+    P1OUT |= LED_R;  // red led
 
     uint i;
     uint len = strlen(str);
@@ -27,7 +27,7 @@ inline void serial_log(const char *str)
         UCA0TXBUF = str[i];
     }
 
-    P1OUT &= ~BIT6;
+    P1OUT &= ~LED_R;
 }
 
 #endif /* UART_H_ */
