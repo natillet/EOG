@@ -34,7 +34,9 @@ typedef unsigned int uint;
 #define P1RX        BIT2        // Rx on P1.2
 #define STR_LEN		35
 
-// Timer counter to 1 second based on 1MHz
+// Timer counter to 1 second based on 1 MHz (2^16/1000000 = 0.065536 count up to 50000 20 times)
 #define SEC_COUNT 20
+// Timer counter to 1/10 second based on 1 MHz
+#define TENTH_SEC 2
 
 #endif /* DEFINES_H_ */

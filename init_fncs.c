@@ -33,7 +33,14 @@ void go_low_power(void)
 	__bis_SR_register(LPM0_bits + GIE);
 }
 
-void ADC_init(void) {
+void setup_timer(void)
+{
+	CCTL0 = CCIE;                             // CCR0 interrupt enabled
+	CCR0 = 50000;
+	TACTL = TASSEL_2 + MC_1;                  // SMCLK, upmode
+}
+
+void setup_ADC(void) {
     //16 x ADC10CLKs sample&hold time, turn on ADC, ADC interrupt enable
     ADC10CTL0 = ADC10SHT_2 + ADC10ON + ADC10IE;
     ADC10CTL1 = INCH_4;                       // input A1

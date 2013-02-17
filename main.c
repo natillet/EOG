@@ -38,11 +38,8 @@ void main()
     setup_clock();
     setup_usci();
     setup_leds();
-    ADC_init();
-
-    CCTL0 = CCIE;                             // CCR0 interrupt enabled
-    CCR0 = 50000;
-    TACTL = TASSEL_2 + MC_1;                  // SMCLK, upmode
+    setup_timer();
+    setup_ADC();
 
     right = 0;
     left = 0;

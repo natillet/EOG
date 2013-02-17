@@ -9,6 +9,7 @@
 #include "uart.h"
 
 int one_sec = SEC_COUNT;
+int tenth_sec = TENTH_SEC;
 uint ADCValue;
 
 /*
@@ -17,15 +18,20 @@ uint ADCValue;
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void TIMER0_A0_ISR()
 {
-	if (one_sec > 0)
+	//if (one_sec > 0)
+	//{
+	//		one_sec--;
+	//}
+	if (tenth_sec > 0)
 	{
-		one_sec--;
+		tenth_sec--;
 	}
 	else
 	{
 		//LEDRG_OUT ^= LED_G;
 		//serial_log("\r\nPrinting things!\r\n");
-		one_sec = 20;
+		one_sec = SEC_COUNT;
+		tenth_sec = TENTH_SEC;
 		__bic_SR_register_on_exit(CPUOFF);        // Clear CPUOFF bit from 0(SR)
 	}
 }

@@ -7,7 +7,7 @@
 
 #include "defines.h"
 
-extern uint ADCValue;
+extern uint ADCValue;	//from interrupts.c
 
 int read_adc(int channel) {
 	int value = 0;
