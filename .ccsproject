@@ -4,11 +4,10 @@
 <projectOptions>
 <deviceVariant value="MSP430G2553"/>
 <deviceFamily value="MSP430"/>
-<deviceEndianness value="little"/>
-<codegenToolVersion value="4.1.1"/>
+<codegenToolVersion value="4.1.2"/>
 <isElfFormat value="true"/>
 <connection value="common/targetdb/connections/TIMSP430-USB.xml"/>
 <linkerCommandFile value="lnk_msp430g2553.cmd"/>
 <rts value="libc.a"/>
-<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate,"/>
+<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate_msp430,"/>
 </projectOptions>

@@ -1,4 +1,4 @@
 EOG
 ===
 
-EOG using MSP430
+Electrooculogram using MSP430
