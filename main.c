@@ -25,10 +25,8 @@
 #include <stdio.h> // snprintf()
 
 uint i;
-uint right;
-uint left;
-uint up;
-uint down;
+uint right_left;
+uint up_down;
 char str[STR_LEN];
 int result;
 
@@ -41,22 +39,18 @@ void main()
     setup_timer();
     setup_ADC();
 
-    right = 0;
-    left = 0;
-    up = 0;
-    down = 0;
+    right_left = 0;
+    up_down = 0;
 
     /* Main program */
     serial_log("Electrooculogram Data\r\n");
 
     while (ALWAYS)
     {
-    	right = read_adc(INCH_4);
-    	left = read_adc(INCH_5);
-    	up = read_adc(INCH_6);
-    	down = read_adc(INCH_7);
+    	right_left = read_adc(INCH_4);
+    	up_down = read_adc(INCH_5);
 
-    	result = snprintf(str, STR_LEN, "R: %d\tL: %d\tU: %d\tD: %d\r\n", right, left, up, down);
+    	result = snprintf(str, STR_LEN, "%d %d\r\n", right_left, up_down);
     	_NOP();
 
     	serial_log(str);
