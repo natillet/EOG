@@ -36,7 +36,7 @@ void go_low_power(void)
 void setup_timer(void)
 {
 	CCTL0 = CCIE;                             // CCR0 interrupt enabled
-	CCR0 = 50000;
+	CCR0 = TIMERA0_COUNT;
 	TACTL = TASSEL_2 + MC_1;                  // SMCLK, upmode
 }
 

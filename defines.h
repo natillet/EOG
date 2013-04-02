@@ -34,9 +34,11 @@ typedef unsigned int uint;
 #define P1RX        BIT2        // Rx on P1.2
 #define STR_LEN		12
 
-// Timer counter to 1 second based on 1 MHz (2^16/1000000 = 0.065536 count up to 50000 20 times)
-#define SEC_COUNT 20
+// Timer counter to 1 second based on 1 MHz (2^16/1000000 = 0.065536 count up to 10000 100 times)
+#define TIMERA0_COUNT	10000
+#define SEC_COUNT 		100
 // Timer counter to 1/10 second based on 1 MHz
-#define TENTH_SEC 2
+#define TENTH_SEC 		9	//would be 10, but RL puts 9 at 10Hz
+#define TWENTYTH_SEC 	4	//would be 5, but RL puts 4 at 19Hz
 
 #endif /* DEFINES_H_ */

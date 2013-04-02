@@ -10,6 +10,7 @@
 
 int one_sec = SEC_COUNT;
 int tenth_sec = TENTH_SEC;
+//int tenth_sec = TWENTYTH_SEC;
 uint ADCValue;
 
 /*
@@ -32,6 +33,7 @@ __interrupt void TIMER0_A0_ISR()
 		//serial_log("\r\nPrinting things!\r\n");
 		one_sec = SEC_COUNT;
 		tenth_sec = TENTH_SEC;
+		//tenth_sec = TWENTYTH_SEC;
 		__bic_SR_register_on_exit(CPUOFF);        // Clear CPUOFF bit from 0(SR)
 	}
 }
